@@ -1,6 +1,7 @@
 #include "figures.h"
 
 #include <stdexcept>
+#include <map>
 
 namespace ch {
 
@@ -15,6 +16,23 @@ void Figure::set_coords(int x, int y) {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+std::map<int, char> cols_map{
+    {0, 'a'},
+    {1, 'b'},
+    {2, 'c'},
+    {3, 'd'},
+    {4, 'e'},
+    {5, 'f'},
+    {6, 'g'},
+    {7, 'h'},
+};
+////////////////////////////////////////////////////////////////////////////////
+
+
+std::string King::WhoAmI() {
+  std::string s = cols_map[col_] + std::to_string(row_ + 1);
+  return "King: " + s;
+}
 
 void King::ComputePoints() {
   points_.clear();
@@ -48,6 +66,11 @@ void King::Compute() {
   }
 }
 ////////////////////////////////////////////////////////////////////////////////
+std::string Rook::WhoAmI() {
+  std::string s = cols_map[col_] + std::to_string(row_ + 1);
+  return "Rook: " + s;
+}
+
 void Rook::ComputePoints() {
   points_.clear();
   Compute();
@@ -76,6 +99,11 @@ void Rook::Compute() {
   }
 }
 ////////////////////////////////////////////////////////////////////////////////
+std::string Bishop::WhoAmI() {
+  std::string s = cols_map[col_] + std::to_string(row_ + 1);
+  return "Bishop: " + s;
+}
+
 void Bishop::ComputePoints() {
   points_.clear();
   Compute();
@@ -112,12 +140,22 @@ void Bishop::Compute() {
   }
 }
 ////////////////////////////////////////////////////////////////////////////////
+std::string Queen::WhoAmI() {
+  std::string s = cols_map[Rook::col_] + std::to_string(Rook::row_);
+  return "Queen: " + s;
+}
+
 void Queen::ComputePoints() {
   Rook::points_.clear();
   Rook::Compute();
   Bishop::Compute();
 }
 ////////////////////////////////////////////////////////////////////////////////
+std::string Knight::WhoAmI() {
+  std::string s = cols_map[col_] + std::to_string(row_ + 1);
+  return "Knight: " + s;
+}
+
 void Knight::ComputePoints() {
   points_.clear();
   Compute();

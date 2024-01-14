@@ -39,6 +39,7 @@ TEST(king, compute4) {
   std::set<std::pair<int, int>> answ{{4, 5}, {4, 4}, {5, 4}, {6, 4},
                                      {6, 5}, {6, 6}, {5, 6}, {4, 6}};
   ASSERT_EQ(k.GetPoints(), answ);
+  ASSERT_EQ(k.WhoAmI(), "King: f6");
 }
 
 TEST(rook, compute1) {
@@ -48,6 +49,7 @@ TEST(rook, compute1) {
                                      {0, 7}, {0, 0}, {1, 1}, {2, 1}, {3, 1},
                                      {4, 1}, {5, 1}, {6, 1}, {7, 1}};
   ASSERT_EQ(k.GetPoints(), answ);
+  ASSERT_EQ(k.WhoAmI(), "Rook: b1");
 }
 
 TEST(rook, compute2) {
@@ -66,6 +68,7 @@ TEST(bishop, compute) {
                                      {6, 6}, {7, 7}, {5, 3}, {6, 2}, {7, 1},
                                      {3, 5}, {2, 6}, {1, 7}};
   ASSERT_EQ(k.GetPoints(), answ);
+  ASSERT_EQ(k.WhoAmI(), "Bishop: e5");
 }
 
 TEST(bishop, compute2) {
@@ -82,6 +85,7 @@ TEST(knight, compute) {
   std::set<std::pair<int, int>> answ{{0, 0}, {2, 0}, {3, 1},
                                      {3, 3}, {2, 4}, {0, 4}};
   ASSERT_EQ(k.GetPoints(), answ);
+  ASSERT_EQ(k.WhoAmI(), "Knight: c2");
 }
 
 TEST(knight, compute2) {

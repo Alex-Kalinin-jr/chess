@@ -1,4 +1,5 @@
 #include <set>
+#include <string>
 
 namespace ch {
 
@@ -8,6 +9,7 @@ public:
   virtual ~Figure() = default;
   void set_coords(int x, int y);
   virtual void ComputePoints() = 0;
+  virtual std::string WhoAmI() = 0;
   std::set<std::pair<int, int>> GetPoints() const { return points_; }
 
 protected:
@@ -21,6 +23,8 @@ public:
   King(int x, int y) : Figure(x, y) {}
   void ComputePoints() override;
 
+  std::string WhoAmI() override;
+
 protected:
   void Compute();
 };
@@ -29,6 +33,7 @@ class Rook : public Figure {
 public:
   Rook(int x, int y) : Figure(x, y) {}
   void ComputePoints() override;
+  std::string WhoAmI() override;
 
 protected:
   void Compute();
@@ -38,6 +43,7 @@ class Bishop : public Figure {
 public:
   Bishop(int x, int y) : Figure(x, y) {}
   void ComputePoints() override;
+  std::string WhoAmI() override;
 
 protected:
   void Compute();
@@ -47,6 +53,7 @@ class Queen : virtual public Rook, public Bishop {
 public:
   Queen(int x, int y) : Rook(x, y), Bishop(x, y) {}
   void ComputePoints() override;
+  std::string WhoAmI() override;
 
 protected:
   void Compute();
@@ -56,6 +63,7 @@ class Knight : public Figure {
 public:
   Knight(int x, int y) : Figure(x, y) {}
   void ComputePoints() override;
+  std::string WhoAmI() override;
 
 protected:
   void Compute();
