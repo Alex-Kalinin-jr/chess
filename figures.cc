@@ -22,10 +22,12 @@ std::map<int, char> cols_map{
 };
 ////////////////////////////////////////////////////////////////////////////////
 
-std::string King::WhoAmI() {
+std::string King::WhoAmI() const {
   std::string s = cols_map[col_] + std::to_string(row_ + 1);
   return "King: " + s;
 }
+
+std::string King::MyAbbreviation() const { return "K"; }
 
 void King::ComputePoints() {
   points_.clear();
@@ -59,10 +61,12 @@ void King::Compute() {
   }
 }
 ////////////////////////////////////////////////////////////////////////////////
-std::string Rook::WhoAmI() {
+std::string Rook::WhoAmI() const {
   std::string s = cols_map[col_] + std::to_string(row_ + 1);
   return "Rook: " + s;
 }
+
+std::string Rook::MyAbbreviation() const { return "R"; }
 
 void Rook::ComputePoints() {
   points_.clear();
@@ -92,10 +96,12 @@ void Rook::Compute() {
   }
 }
 ////////////////////////////////////////////////////////////////////////////////
-std::string Bishop::WhoAmI() {
+std::string Bishop::WhoAmI() const {
   std::string s = cols_map[col_] + std::to_string(row_ + 1);
   return "Bishop: " + s;
 }
+
+std::string Bishop::MyAbbreviation() const { return "B"; }
 
 void Bishop::ComputePoints() {
   points_.clear();
@@ -133,10 +139,12 @@ void Bishop::Compute() {
   }
 }
 ////////////////////////////////////////////////////////////////////////////////
-std::string Queen::WhoAmI() {
+std::string Queen::WhoAmI() const {
   std::string s = cols_map[Rook::col_] + std::to_string(Rook::row_);
   return "Queen: " + s;
 }
+
+std::string Queen::MyAbbreviation() const { return "Q"; }
 
 void Queen::ComputePoints() {
   Rook::points_.clear();
@@ -144,10 +152,12 @@ void Queen::ComputePoints() {
   Bishop::Compute();
 }
 ////////////////////////////////////////////////////////////////////////////////
-std::string Knight::WhoAmI() {
+std::string Knight::WhoAmI() const {
   std::string s = cols_map[col_] + std::to_string(row_ + 1);
   return "Knight: " + s;
 }
+
+std::string Knight::MyAbbreviation() const { return "N"; }
 
 void Knight::ComputePoints() {
   points_.clear();

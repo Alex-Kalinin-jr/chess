@@ -60,7 +60,7 @@ clean:
 # 	$(OPEN) index.html
 
 test:
-	$(CC) $(CXXFLAGS) figures.cc board.cc test.cc -g -o $(EXECUTABLE_TEST) $(LDFLAGS) 
+	$(CC) $(CXXFLAGS) figures.cc board.cc view.cc test.cc -g -o $(EXECUTABLE_TEST) $(LDFLAGS) 
 	./$(EXECUTABLE_TEST)
 
 style:

@@ -2,6 +2,7 @@
 
 #include "board.h"
 #include "figures.h"
+#include "view.h"
 
 namespace ch {
 
@@ -108,8 +109,8 @@ TEST(board, compute1) {
   std::shared_ptr<Figure> king = std::make_shared<King>(0, 0);
   b.AddFigure(king);
   // std::shared_ptr<Bishop> figureQueen = std::make_shared<Queen>(3, 0);
-  // std::shared_ptr<Figure> queen = std::static_pointer_cast<Figure>(figureQueen);
-  // b.AddFigure(queen);
+  // std::shared_ptr<Figure> queen =
+  // std::static_pointer_cast<Figure>(figureQueen); b.AddFigure(queen);
   std::shared_ptr<Figure> rook = std::make_shared<Rook>(1, 0);
   b.AddFigure(rook);
   std::shared_ptr<Figure> knight = std::make_shared<Knight>(4, 4);
@@ -118,6 +119,9 @@ TEST(board, compute1) {
   for (auto &answ : answs) {
     std::cout << answ << std::endl;
   }
+  View w;
+  std::vector<std::shared_ptr<Figure>> f = b.GetFigures();
+  w.output(f);
 }
 
 } // namespace ch

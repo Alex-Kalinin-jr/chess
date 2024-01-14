@@ -12,7 +12,8 @@ public:
   virtual ~Figure() = default;
   void set_coords(int x, int y);
   virtual void ComputePoints() = 0;
-  virtual std::string WhoAmI() = 0;
+  virtual std::string WhoAmI() const = 0;
+  virtual std::string MyAbbreviation() const = 0;
   std::pair<int, int> GetCoords() const { return {row_, col_}; }
   std::set<std::pair<int, int>> GetPoints() const { return points_; }
 
@@ -27,7 +28,8 @@ public:
   King(int x, int y) : Figure(x, y) {}
   void ComputePoints() override;
 
-  std::string WhoAmI() override;
+  std::string WhoAmI() const override;
+  std::string MyAbbreviation() const override;
 
 protected:
   void Compute();
@@ -37,7 +39,8 @@ class Rook : public Figure {
 public:
   Rook(int x, int y) : Figure(x, y) {}
   void ComputePoints() override;
-  std::string WhoAmI() override;
+  std::string WhoAmI() const override;
+  std::string MyAbbreviation() const override;
 
 protected:
   void Compute();
@@ -47,7 +50,8 @@ class Bishop : public Figure {
 public:
   Bishop(int x, int y) : Figure(x, y) {}
   void ComputePoints() override;
-  std::string WhoAmI() override;
+  std::string WhoAmI() const override;
+  std::string MyAbbreviation() const override;
 
 protected:
   void Compute();
@@ -57,7 +61,8 @@ class Queen : virtual public Rook, virtual public Bishop {
 public:
   Queen(int x, int y) : Rook(x, y), Bishop(x, y) {}
   void ComputePoints() override;
-  std::string WhoAmI() override;
+  std::string WhoAmI() const override;
+  std::string MyAbbreviation() const override;
 
 protected:
   void Compute();
@@ -67,7 +72,8 @@ class Knight : public Figure {
 public:
   Knight(int x, int y) : Figure(x, y) {}
   void ComputePoints() override;
-  std::string WhoAmI() override;
+  std::string WhoAmI() const override;
+  std::string MyAbbreviation() const override;
 
 protected:
   void Compute();
