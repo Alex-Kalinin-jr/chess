@@ -1,7 +1,7 @@
 #include "figures.h"
 
-#include <stdexcept>
 #include <map>
+#include <stdexcept>
 
 namespace ch {
 
@@ -17,17 +17,10 @@ void Figure::set_coords(int x, int y) {
 
 ////////////////////////////////////////////////////////////////////////////////
 std::map<int, char> cols_map{
-    {0, 'a'},
-    {1, 'b'},
-    {2, 'c'},
-    {3, 'd'},
-    {4, 'e'},
-    {5, 'f'},
-    {6, 'g'},
-    {7, 'h'},
+    {0, 'a'}, {1, 'b'}, {2, 'c'}, {3, 'd'},
+    {4, 'e'}, {5, 'f'}, {6, 'g'}, {7, 'h'},
 };
 ////////////////////////////////////////////////////////////////////////////////
-
 
 std::string King::WhoAmI() {
   std::string s = cols_map[col_] + std::to_string(row_ + 1);

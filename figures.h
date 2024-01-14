@@ -1,3 +1,6 @@
+#ifndef FIGURES_H
+#define FIGURES_H
+
 #include <set>
 #include <string>
 
@@ -10,6 +13,7 @@ public:
   void set_coords(int x, int y);
   virtual void ComputePoints() = 0;
   virtual std::string WhoAmI() = 0;
+  std::pair<int, int> GetCoords() const { return {row_, col_}; }
   std::set<std::pair<int, int>> GetPoints() const { return points_; }
 
 protected:
@@ -49,7 +53,7 @@ protected:
   void Compute();
 };
 
-class Queen : virtual public Rook, public Bishop {
+class Queen : virtual public Rook, virtual public Bishop {
 public:
   Queen(int x, int y) : Rook(x, y), Bishop(x, y) {}
   void ComputePoints() override;
@@ -70,3 +74,5 @@ protected:
 };
 
 } // namespace ch
+
+#endif // FIGURES_H

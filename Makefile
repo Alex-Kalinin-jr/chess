@@ -60,11 +60,11 @@ clean:
 # 	$(OPEN) index.html
 
 test:
-	$(CC) $(CXXFLAGS) figures.cc test.cc -g -o $(EXECUTABLE_TEST) $(LDFLAGS) 
+	$(CC) $(CXXFLAGS) figures.cc board.cc test.cc -g -o $(EXECUTABLE_TEST) $(LDFLAGS) 
 	./$(EXECUTABLE_TEST)
 
 style:
-	-@clang-format -i -style=file $(SRCFILES) $(HDRFILES) $(LIB_ONE_FILES) *.cc
+	-@clang-format -i -style=file $(SRCFILES) $(HDRFILES) $(LIB_ONE_FILES) *.cc *.h
 
 # cppcheck:
 # 	cppcheck --language=c++ --std=c++17 --enable=all \
