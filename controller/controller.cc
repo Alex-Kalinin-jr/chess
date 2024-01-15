@@ -14,15 +14,27 @@ void Controller::Start() const {
       }
       points = reader_->Read(filename);
     } catch (...) {
-      std::cout << "Input error" << std::endl;
+      view_->ShowMessage("Input error");
       continue;
     }
+
     try {
       view_->Output(points);
     } catch (...) {
-      std::cout << "Output error" << std::endl;
+      view_->ShowMessage("Output error");
+      continue;
+    }
+
+    try {
+      board_->ArrangeFigures(points);
+      for (auto &chop : board_->GetAllChops()) {
+        view_->ShowMessage(chop);
+      }
+    } catch (...) {
+      view_->ShowMessage("Internal error");
       continue;
     }
   }
 }
-} // namespace ch
+
+}  // namespace ch

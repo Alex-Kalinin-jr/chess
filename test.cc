@@ -1,5 +1,4 @@
 #include "gtest/gtest.h"
-
 #include "lib/board.h"
 #include "lib/readwrite.h"
 #include "view/view.h"
@@ -115,7 +114,7 @@ TEST(board, compute1) {
   std::vector<std::string> answs = b.GetAllChops();
 }
 
-} // namespace ch
+}  // namespace ch
 
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);

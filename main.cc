@@ -1,6 +1,6 @@
 #include "controller/controller.h"
-#include "view/view.h"
 #include "lib/board.h"
+#include "view/view.h"
 
 int main() {
   auto board = std::make_shared<ch::Board>();

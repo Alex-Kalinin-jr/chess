@@ -10,11 +10,12 @@
 
 namespace ch {
 class View {
-public:
+ public:
   View() {}
   std::string Input() const;
-  void Output(std::vector<std::shared_ptr<Figure>> &points) const;
+  void ShowMessage(const std::string &message) const;
+  void Output(const std::vector<std::shared_ptr<Figure>> &points) const;
 };
-} // namespace ch
+}  // namespace ch
 
-#endif // VIEV_H
+#endif  // VIEV_H

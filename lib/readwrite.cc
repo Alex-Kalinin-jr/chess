@@ -1,16 +1,16 @@
 #include "readwrite.h"
 
 #include <fstream>
-#include <sstream>
 #include <iostream>
+#include <sstream>
 #include <stdexcept>
 
 #include "figures.h"
 
 namespace ch {
 
-std::vector<std::shared_ptr<Figure>>
-Reader::Read(const std::string &filename) const {
+std::vector<std::shared_ptr<Figure>> Reader::Read(
+    const std::string &filename) const {
   auto answ = std::vector<std::shared_ptr<Figure>>();
   auto file = std::ifstream(filename, std::ios::in);
   if (!file.is_open()) {
@@ -50,4 +50,4 @@ Reader::Read(const std::string &filename) const {
   return answ;
 }
 
-} // namespace ch
+}  // namespace ch

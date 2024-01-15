@@ -14,7 +14,8 @@ public:
   Board() = default;
   ~Board() = default;
 
-  void AddFigure(std::shared_ptr<Figure> figure) { figures_.push_back(figure); }
+  void ArrangeFigures(std::vector<std::shared_ptr<Figure>> figures);
+  void AddFigure(std::shared_ptr<Figure> figure);
   std::vector<std::shared_ptr<Figure>> GetFigures() const { return figures_; }
   std::vector<std::string> GetAllChops() const;
 

@@ -21,4 +21,23 @@ std::vector<std::string> Board::GetAllChops() const {
   }
   return answ;
 }
-} // namespace ch
+
+void Board::ArrangeFigures(std::vector<std::shared_ptr<Figure>> figures) {
+  figures_.clear();
+  for (const auto &figure : figures) {
+    AddFigure(figure);
+  }
+}
+
+void Board::AddFigure(std::shared_ptr<Figure> figure) {
+  bool flag = !std::any_of(
+      figures_.begin(), figures_.end(), [&](const auto &presented) {
+        return presented->GetCoords() == figure->GetCoords();
+      });
+
+  if (flag) {
+    figures_.push_back(figure);
+  }
+}
+
+}  // namespace ch

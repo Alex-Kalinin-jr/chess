@@ -44,6 +44,7 @@ all: build
 
 build: clean $(SRCOBJ) libs
 	$(CC) $(SRCOBJ) $(LIB_ONE) -o $(EXECUTABLE) $(LDFLAGS)
+	./$(EXECUTABLE)
 
 
 libs: $(LIB_ONE)
@@ -68,11 +69,11 @@ dvi:
 
 
 style:
-	-@clang-format -i -style=file $(SRCFILES) $(HDRFILES) $(LIB_ONE_FILES) *.cc *.h
+	-@clang-format -i -style="{BasedOnStyle: Google}" $(SRCFILES) $(HDRFILES) $(LIB_ONE_FILES) *.cc *.h
 
 cppcheck:
 	cppcheck --language=c++ --std=c++17 --enable=all \
-	--suppress=missingInclude $(SRCFILES) $(HDRFILES) $(LIB_ONE_FILES) main.cc
+	--suppress=missingInclude $(SRCFILES) $(HDRFILES) $(LIB_ONE_FILES)
 
 leaks:
 	valgrind --leak-check=full --verbose --log-file=$(REPORTDIR)/$(LEAKS_REPORT_FILE) ./$(EXECUTABLE_TEST)
