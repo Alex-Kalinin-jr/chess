@@ -76,4 +76,4 @@ cppcheck:
 	--suppress=missingInclude $(SRCFILES) $(HDRFILES) $(LIB_ONE_FILES)
 
 leaks:
-	valgrind --leak-check=full --verbose --log-file=$(REPORTDIR)/$(LEAKS_REPORT_FILE) ./$(EXECUTABLE_TEST)
+	valgrind --leak-check=full --verbose --log-file=$(REPORTDIR)/$(LEAKS_REPORT_FILE) ./$(EXECUTABLE)
