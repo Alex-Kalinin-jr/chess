@@ -11,11 +11,8 @@ namespace ch {
 
 std::vector<std::shared_ptr<Figure>> Reader::Read(
     const std::string &filename) const {
-  auto answ = std::vector<std::shared_ptr<Figure>>();
-  auto file = std::ifstream(filename, std::ios::in);
-  if (!file.is_open()) {
-    throw std::runtime_error("Failed to open file");
-  } else {
+  std::vector<std::shared_ptr<Figure>> answ;
+  if (std::ifstream file{filename}; file.is_open()) {
     std::string line;
     while (std::getline(file, line)) {
       std::string name;
@@ -46,6 +43,8 @@ std::vector<std::shared_ptr<Figure>> Reader::Read(
       }
     }
     file.close();
+  } else {
+    throw std::runtime_error("Failed to open file");
   }
   return answ;
 }

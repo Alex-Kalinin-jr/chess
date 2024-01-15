@@ -15,6 +15,10 @@ class View {
   std::string Input() const;
   void ShowMessage(const std::string &message) const;
   void Output(const std::vector<std::shared_ptr<Figure>> &points) const;
+
+ private:
+  bool OutputFig(int i, int j,
+                 const std::vector<std::shared_ptr<Figure>> &points) const;
 };
 }  // namespace ch
 
