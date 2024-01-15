@@ -1,0 +1,5 @@
+king 2 2
+Rook 2 2
+Queen 2 2
+Bishop 2 2
+king 3 3
