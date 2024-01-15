@@ -1,0 +1,5 @@
+king 2 2
+jdhfjdf
+queen 0 0
+king 5 7
+queen 7 7

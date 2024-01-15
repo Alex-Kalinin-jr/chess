@@ -177,7 +177,6 @@ void Knight::Compute() {
   if ((row_ - 1) >= 0 && (col_ + 2) <= 7) {
     points_.insert({row_ - 1, col_ + 2});
   }
-
   if ((row_ + 1) <= 7 && (col_ - 2) >= 0) {
     points_.insert({row_ + 1, col_ - 2});
   }

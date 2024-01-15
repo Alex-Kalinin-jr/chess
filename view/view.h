@@ -6,13 +6,14 @@
 #include <set>
 #include <vector>
 
-#include "figures.h"
+#include "../lib/figures.h"
 
 namespace ch {
 class View {
 public:
   View() {}
-  void output(std::vector<std::shared_ptr<Figure>> &points) const;
+  std::string Input() const;
+  void Output(std::vector<std::shared_ptr<Figure>> &points) const;
 };
 } // namespace ch
 

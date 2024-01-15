@@ -3,11 +3,11 @@
 #include <iostream>
 #include <map>
 
-#include "figures.h"
+#include "../lib/figures.h"
 
 namespace ch {
 
-void View::output(std::vector<std::shared_ptr<Figure>> &points) const {
+void View::Output(std::vector<std::shared_ptr<Figure>> &points) const {
   for (int i = 7; i >= 0; --i) {
     for (int j = 0; j < 8; ++j) {
       bool flag = false;
@@ -24,6 +24,13 @@ void View::output(std::vector<std::shared_ptr<Figure>> &points) const {
     }
     std::cout << std::endl;
   }
+}
+
+std::string View::Input() const {
+  std::cout << "Enter filename (0 - exit)" << std::endl;
+  std::string filename;
+  std::cin >> filename;
+  return filename;
 }
 
 } // namespace ch
